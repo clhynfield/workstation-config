@@ -14,5 +14,4 @@
 1. `mas search krisp`
 1. `mas search logitech-g-hub`
 1. `mas search bartender`
-1. `mas search 1password`
 
