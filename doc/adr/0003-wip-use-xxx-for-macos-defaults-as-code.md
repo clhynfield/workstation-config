@@ -18,7 +18,7 @@ Implements [2. Configure macOS defaults as code](0002-configure-macos-defaults-a
 - [geerlingguy/mac-dev-playbook][mdp] executes an [.osx][] script that 
   runs `defaults write` commands (Ansible, Shell).
 - [dsully/macos-defaults][dsmd] manages macOS defaults declaratively via 
-  YAML files (Go).
+  YAML files (Rust).
 - [brokosz/macos-default][brmd] exports/imports macOS defaults to/from 
   plist files (Shell).
 - [tarranjones/macOS-defaults][tjmd] NPM module to access the macOS
@@ -27,6 +27,10 @@ Implements [2. Configure macOS defaults as code](0002-configure-macos-defaults-a
   changes to stdout every 2 seconds (Go).
 - [catilac/PlistWatch][pwatch] monitors real-time changes to plist files and 
   outputs defaults commands to recreate changes (Go).
+- [Wilfred/difftastic][difft] is a structural diff tool that compares files 
+  based on their syntax, including YAML (Rust).
+- [sters/diffnest][diffnest] compares JSON, YAML, and other structured data 
+  files with an intuitive unified diff output (Go). 
 
 ## Deliberation
 
@@ -58,6 +62,24 @@ everything and start from scratch anytime you want to make a change
 seasonally. As such, I favor configuration as code and idempotence, 
 while facilitating a fairly smooth and speedy full rebuild. 
 
+### Assays
+
+#### Assay 1: DSully macos-defaults bookends with YAML diff
+
+Try running `[macos-defaults][dsmd]` before and after changes, using a
+YAML diff tool to see what's changed.
+
+After a quick search, `[difftastic][difft]` appears to be an active 
+project that compares YAML files and has a Homebrew formula.
+
+##### Findings
+
+Unfortunately, DSully's macos-defaults tool reads plist files rather
+than interacting with cfprefsd, so it's going to get laggy, chunky
+results.
+
+#### Assay 2: 
+
 ## Decision
 
 ## Consequences
@@ -74,3 +96,5 @@ by the change that will need to be mitigated.
 [pdiff]: https://github.com/WillAbides/plist-diff (plist-diff by WillAbides on GitHub)
 [pwatch]: https://github.com/catilac/plistwatch (PlistWatch by Moon on GitHub)
 [cncf-ii]: https://glossary.cncf.io/immutable-infrastructure/ (Immutable infrastructure by Cloud Native Compute Federation)
+[diffnest]: https://github.com/sters/diffnest?tab=readme-ov-file (diffnest by sters on GitHub)
+[difft]: https://github.com/Wilfred/difftastic (difftastic by Wilfred Hughes on GitHub)
