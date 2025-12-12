@@ -15,3 +15,9 @@
 1. `mas search logitech-g-hub`
 1. `mas search bartender`
 
+## Mac configuration and use
+
+- [How-to: System preference settings for macOS](https://ss64.com/mac/syntax-defaults.html)
+- [macOS defaults list](https://macos-defaults.com)
+- [Awesome macOS command line](https://herrbischoff.com/code/me/awesome-macos-command-line)
+
